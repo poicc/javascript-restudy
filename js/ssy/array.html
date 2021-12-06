@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //如果修改的 length 大于原长度，则多出部分会空出来，置为 null。 
+        //如果修改的 length 小于原长度，则多出的元素会被删除，数组将从后面删除元素。 
+        var arr1 = [11, 12, 13];
+        var arr2 = [21, 22, 23];// 修改数组 arr1 的 length
+        arr1.length = 1;
+        console.log(JSON.stringify(arr1));// 修改数组 arr2 的 length
+        arr2.length = 5;
+        console.log(JSON.stringify(arr2));
+
+        //翻转数组
+        var arr = [10, 20, 30, 40, 50]; // 原始数组
+        var newArr = []; // 翻转后的数组
+        for (var i = 0; i < arr.length; i++) {
+            newArr[i] = arr[arr.length - i - 1];
+        }
+        console.log(JSON.stringify(newArr));
+        
+
+        //冒泡排序
+        var arr = [20, 10, 50, 30, 40];
+        for (var i = 0; i < arr.length - 1; i++) {
+            for (var j = 0; j < arr.length - i - 1; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    var temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+        console.log(JSON.stringify(arr));
+    </script>
+</body>
+
+</html>

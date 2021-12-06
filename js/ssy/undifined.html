@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //变量已声明，未赋值时
+        let name;
+        console.log(name); 				// 打印结果：undefined
+        console.log(typeof name); // 打印结果：undefined
+
+        //变量未声明（未定义）时
+        // console.log(a);        // Uncaught ReferenceError: a is not defined
+        console.log(typeof a); // undefined
+
+        //函数无返回值时
+        function foo() { }
+        console.log(foo()); // 打印结果：undefined
+
+        //调用函数时，未传参
+        function foo(name) {
+            console.log(name);
+        }
+        foo(); // 调用函数时，未传参。执行函数后的打印结果：undefined
+
+        //如果调用函数时没有传参，我们可以给形参设置一个默认值
+        // function foo(name = 'ssy') { }
+        // foo();
+    </script>
+</body>
+
+</html>

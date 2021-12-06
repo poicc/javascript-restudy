@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var num = -0.6
+        console.log(Math.abs(num))        //取绝对值
+        console.log(Math.floor(num))      //向下取整，向小取
+        console.log(Math.ceil(num))       //向上取整，向大取
+        console.log(Math.round(num))      //四舍五入取整（正数四舍五入，负数五舍六入）
+        console.log(Math.random())        //生成0-1之间的随机数
+
+        //Math.abs()：获绝对值 参数中可以接收字符串类型的数字，此时会将字符串做隐式类型转换，然后再调用 Math.abs() 方法
+        console.log(Math.abs(2))  // 2
+        console.log(Math.abs(-2)) // 2
+        // 先做隐式类型转换，将 '-2'转换为数字类型 -2，然后再调用 Math.abs()
+        console.log(Math.abs('-2'))   // 2
+        console.log(Math.abs('hello')) // NaN
+
+        //Math.random() 生成 [0, 1) 之间的随机浮点数。
+        //生成 [0, x) 之间的随机数
+        // Math.round(Math.random() * x)
+        //生成 [x, y) 之间的随机数
+        // Math.round(Math.random() * (y - x) + x)
+
+        //生成 [x, y]之间的随机整数 并且要包含这两个整数。
+        function getRandom(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+        console.log(getRandom(1, 10));
+        const arr = ['许莫淇', '杨阳', '尚宇驰', '陈蓉琪',];
+        const index = getRandom(0, arr.length - 1); // 生成随机的index
+        console.log(arr[index]); // 随机点名
+
+        //计算 a 的 b 次方
+        // Math.pow(a, b);
+        var a = Math.pow(3, Math.pow(2, 2)); //3的2的平方次方
+        console.log(a);
+
+        //3的2次方的4次方
+        var a2 = Math.pow(Math.pow(3, 2), 4);
+        console.log(a2);
+
+        //Math.sqrt(a);开方
+        var a1 = Math.sqrt(36);
+        console.log(a1);
+
+
+        //url 编码和解码 用特殊的UTF-8编码替换所有无效的字符
+        //encodeURIComponent();   //把字符串作为 URI 组件进行编码
+        // decodeURIComponent();   //把字符串作为 URI 组件进行解码
+        var url = "https://www.yuque.com/mqxu/zp28qq/qehv0b";
+        var str = encodeURIComponent(url);
+        console.log(str);                           //打印url的编码
+        console.log(decodeURIComponent(str));       //对url进行编码后，再解码，还原为url
+    </script>
+</body>
+
+</html>

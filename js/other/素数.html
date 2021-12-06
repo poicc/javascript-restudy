@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    function isSuNum(num) {
+        for (let i = 2; i <= parseInt(Math.sqrt(num)); i++) {
+            if (num % i === 0) {
+                return false;
+            }
+        }
+        if (num === 1) {
+            return false;
+        }
+        return true;
+    }
+
+    let a = 2;
+    let b = 1;
+    console.log(isSuNum(a) ? a + '是素数' : a + '不是素数');
+    console.log(isSuNum(b) ? b + '是素数' : b + '不是素数');
+</script>
+
+</html>

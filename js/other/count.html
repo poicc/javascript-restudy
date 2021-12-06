@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // 1.统计次数
+    var str = 'abdgdbcaethbganmugthaesqszaphfdvwd';
+    var obj = {};
+    // 创建了一个空的对象，存储字符串中的每个字符。属性：每个字符，属性值：该字符出现的次数
+    for (var i = 0; i < str.length; i++) {
+        // 遍历字符串
+        var chars = str.charAt(i);
+        // chars代表字符串的每一个字符
+        if (obj[chars]) {
+            obj[chars]++;
+        } else {
+            obj[chars] = 1;
+        }
+        // obj[chars]属性值：该字符出现的次数
+        // 如果已经存在，那么次数+1；否则赋值为1
+    }
+    console.log(obj);
+    // 输出对象obj，显示每个字符出现的次数
+    // 2.遍历对象，找出最大的次数
+    var max = 0;
+    var ch = '';
+    for (var k in obj) {
+        if (obj[k] > max) {
+            max = obj[k];
+            ch = k;
+        }
+    }
+    // k代表属性：每个字符
+    // obj[k]代表属性值：该字符出现的次数
+    // 将次数最多的字符赋值到ch
+    console.log('最多的字符是' + ch + '，次数为' + max);
+</script>
+
+</html>

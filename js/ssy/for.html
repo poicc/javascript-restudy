@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        outer: for (var i = 0; i < 5; i++) {
+            console.log('外层循环i的值：' + i);
+            for (var j = 0; j < 5; j++) {
+                break outer; // 直接跳出outer所在的外层循环（这个outer是我自定义的label）      
+                console.log('内层循环j的值:' + j);
+            }
+        }
+
+        //外层循环i的值：0
+
+        var str = 'ssy';
+        console.log(str.length);   // 打印结果：3
+        //上面的代码，执行顺序是这样的：
+        // 步骤（1）：把简单数据类型 string 转换为 引用数据类型  String，保存到临时变量中
+        var temp = new String('ssy');
+
+        // 步骤（2）：把临时变量的值 赋值给 str
+        str = temp;
+
+        //  步骤（3）：销毁临时变量
+        temp = null;
+
+
+        //在底层，字符串是以字符数组的形式保存的。
+        var str = 'hello';
+        console.log(str.length); // 获取字符串的长度
+        console.log(str[2]); // 获取字符串中的第2个字符
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var sum = 100;
+    var num = parseInt(prompt("请输入您要的操作:\n1.存钱\n2.取钱\n3.显示余额\n4.退出"));
+    while(num != 4) {
+        if(num == 1) {
+            let num1 = parseInt(prompt("请输入存的钱数:"));
+            sum += num1;
+            this.yue();
+        } else if(num == 2) {
+            let num1 = parseInt(prompt("请输入取的钱数:"));
+            sum -= num1;
+            this.yue();
+        } else if(num == 3) {
+            this.yue();
+        }
+        num = parseInt(prompt("请输入您要的操作:\n1.存钱\n2.取钱\n3.显示余额\n4.退出"));
+    };
+    alert("您正在退出！")
+
+    function yue() {
+        alert("您的余额为:"+sum);
+    }
+</script>
+</html>

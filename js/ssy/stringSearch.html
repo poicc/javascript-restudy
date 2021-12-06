@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const str = 'abcdea';
+        //给字符查索引(索引值为0,说明字符串以查询的参数为开头)
+        console.log(str.indexOf('c'));
+        console.log(str.lastIndexOf('c'));
+
+        console.log(str.indexOf('a'));
+        console.log(str.lastIndexOf('a'));
+
+        const name = 'helloworld'
+        console.log(name.indexOf('ow')) // 打印结果：4
+
+        //索引值 = str.indexOf(想要查询的字符串, [起始位置]);
+        var str2 = 'helloworld'
+        result = str2.indexOf('o', 3) // 从第三个位置开始查找 'o'这个字符 【重要】
+        console.log(result) // 打印结果：4
+
+        var str1 = 'helloworldhellohello'
+        var index = str1.indexOf('e')
+        var num = 0
+        while (index !== -1) {
+            console.log(index)
+            num++ // 每打印一次，就计数一次
+            index = str1.indexOf('e', index + 1)
+        }
+
+        console.log('e 出现的次数是: ' + num)
+
+
+        //索引值 = str.search(想要查找的字符串);
+        //索引值 = str.search(正则表达式);
+        const name = 'ziguyilai'
+        console.log(name.search('yi')) // 打印结果：4
+        console.log(name.search(/yi/i)) // 打印结果：4 name去匹配字符yi，忽略大小写
+
+
+        //布尔值 = str.includes(想要查找的字符串, [position]); position为起始位置
+        const name = 'ziguyilai'
+        console.log(name.includes('yi'))   // 打印结果：true
+        console.log(name.includes('hello')) // 打印结果：false
+        console.log(name.includes('yi', 7)) // 打印结果：false
+
+
+        //布尔值 = str.startsWith(想要查找的内容, [position]);
+        //判断一个字符串是否以指定的子字符串开头
+        const name = 'abcdefg';
+        console.log(name.startsWith('a')); // 打印结果：true
+        console.log(name.startsWith('b')); // 打印结果：false
+        // 因为指定了起始位置为3，所以是在 defg 这个字符串中检索。
+        console.log(name.startsWith('d', 3)); // 打印结果：true
+        console.log(name.startsWith('c', 3)); // 打印结果：false
+
+
+        //布尔值 = str.endsWith(想要查找的内容, [position]); 如果指定position 则检索范围为[0, position) 
+        const name = 'abcdefg';
+        console.log(name.endsWith('g')); // 打印结果：true
+        console.log(name.endsWith('f')); // 打印结果：false
+        // 因为指定了截止位置为3，所以是在 abc 这个长度为3字符串中检索
+        console.log(name.endsWith('c', 3)); // 打印结果：true
+        console.log(name.endsWith('d', 3)); // 打印结果：false
+
+        
+    </script>
+</body>
+
+</html>

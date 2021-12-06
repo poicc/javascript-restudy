@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    
+</body>
+<script>
+    //封装栈类
+    function Stack(){
+        //栈中的属性
+        this.items = []
+
+        //栈的相关操作
+        //将元素压入栈(使用原型)
+        Stack.prototype.push = function(element) {
+            this.items.push(element)
+        }
+
+        //从栈中去除元素
+        Stack.prototype.pop = function(element) {
+            return this.items.push(element)
+        }
+    }
+</script>
+</html>

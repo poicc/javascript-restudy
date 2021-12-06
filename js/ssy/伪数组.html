@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>伪数组举例</title>
+</head>
+
+<body>
+  <button>按钮1</button>
+  <button>按钮2</button>
+  <button>按钮3</button>
+
+  <script>
+    //通过getElementsByTagName获取到的btnArray实际上是伪数组，并不是真实的数组。
+    let btnArray = document.getElementsByTagName('button');
+    console.log(btnArray);
+    console.log(btnArray[0]);
+    console.log(typeof btnArray);
+    btnArray = Array.from(btnArray);
+    btnArray.forEach(element => {
+      console.log(element);
+    });
+  </script>
+</body>
+
+</html>

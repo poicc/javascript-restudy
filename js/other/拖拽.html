@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#box1 {
+				background-color: antiquewhite;
+				width: 100px;
+				height: 100px;
+				position: absolute;
+			}
+		</style>
+		<script>
+			window.onload = function() {
+				let box1 = document.getElementById("box1")
+				//鼠标按下时开始拖拽
+				box1.onmousedown = function(event) {
+					//设置box1捕获所有鼠标按下的事件
+					//防止chrome报错 用此写法判定一下存不存在setCapture方法
+					box1.setCapture && box1.setCapture()
+					event = event || window.event
+					//div的水平偏移量 鼠标.clientX - 元素.offsetLeft
+					var ol = event.clientX - box1.offsetLeft;
+					var ot = event.clientY - box1.offsetTop;
+
+					document.onmousemove = function(event) {
+						event = event || window.event
+						let left = event.clientX
+						let top = event.clientY
+						box1.style.left = left + 'px'
+						box1.style.top = top + 'px'
+					}
+				}
+				//鼠标松开时 被拖拽元素固定在当前位置
+				document.onmouseup = function() {
+					document.onmousemove = null
+					//取消up事件
+					document.onmouseup = null
+					box1.releaseCapture && box1.releaseCapture()
+				};
+				//当拖拽一个网页中的内容时，浏览器会默认区搜索引擎中搜索内容
+				 //若不希望发生这个行为 可以通过return false来取消默认行为
+				 //但不支持IE8
+				 return false;
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box1">第一次JS课</div>
+	</body>
+</html>

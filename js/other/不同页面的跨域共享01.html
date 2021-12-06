@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PageA</title>
+</head>
+<script>
+    // 1：注册事件，接受从B页面发送过来的键名
+    window.addEventListener("message", function( event ) {
+        const value = event.data
+        // 2：域名校验，只有确保是我们自己的域名才去会把缓存中的数据传给它
+        if (event.origin === 'http://127.0.0.1:8849') {
+            event.source.postMessage(localStorage.getItem(value), event.origin);
+        }
+     }, false ); 
+</script>
+<body id="content">
+    <h1>page A</h1>
+</body>
+<script>
+    localStorage.setItem('pageA','this is pageA’s localstorage')
+</script>
+</html>

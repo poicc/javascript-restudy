@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //方法一（隐式类型转换）：字符串拼接
+        var a = 123; // Number 类型
+        console.log(a + ''); // 转换成 String 类型 内部是调用的 String() 函数
+        console.log(a + 'hello'); // 转换成 String 类型
+
+        //方法二：调用 toString()方法
+        //null 和 undefined 这两个值没有 toString()方法
+        var a = 255
+        //对于Number调用toString()时可以在方法中传递一个整数作为参数
+        //此时它将会把数字转换为指定的进制,如果不指定则默认转换为10进制
+        a = a.toString(2)      // 转换为二进制
+        console.log(a)        // 11111111
+        console.log(typeof a) // string
+
+        //方法三（强制转换）：使用 String()函数
+
+        //只保留字符串最开头的数字，后面的中文自动消失。
+        console.log(parseInt("2021年在公众号上发了10篇文章")); //打印结果：2021
+        console.log(parseInt("2021.01在公众号上写了6篇文章")); //打印结果仍是：2021（说明只会取整数）
+        console.log(parseInt("aaa2021.01在公众号上写了6篇文章")); //打印结果：NaN （因为不是以数字开头）
+
+        //如果对非 String使用 parseInt()或 parseFloat()，它会先将其转换为 String 然后再操作。
+        var a = 168.23
+        console.log(parseInt(a)) //打印结果：168  （因为是先将 a 转为字符串"168.23"，然后然后再操作）
+        var b = true; console.log(parseInt(b)) //打印结果：NaN （因为是先将 b 转为字符串"true"，然后然后再操作）
+        var c = null; console.log(parseInt(c)) //打印结果：NaN  （因为是先将 c 转为字符串"null"，然后然后再操作）
+        var d = undefined; console.log(parseInt(d)) //打印结果：NaN  （因为是先将 d 转为字符串"undefined"，然后然后再操作）
+
+        //自动带有截断小数的功能：取整，不四舍五入。
+        var a = parseInt(5.8) + parseInt(4.7);
+        console.log(a);  // 9
+        var a = parseInt(5.8 + 4.7);
+        console.log(a);   //10
+
+        //带两个参数时，表示在转换时，包含了进制转换。
+        var a = '110';
+        var num = parseInt(a, 16); //【重要】将a当成十六进制来看待，转换成十进制的num
+        console.log(num);   //272
+
+
+        var a = '5';
+        var num = parseInt(a, 2); // 将a当成十六进制来看待，转换成十进制的num
+        console.log(num); // 打印结果：NaN ，因为二进制中没有5这个数，转换失败。
+
+        result1 = true + 1  		  // 2 = 1+ 1
+        result2 = true + false    // 1 = 1+ 0
+        result3 = 1 + null 	    	// 1 = 1+ 0
+        result4 = 100 - '1'		    // 99
+        console.log(`${result1},${result2},${result3},${result4}`)
+        
+        result1 = 1 + 2 + '3'  // 33
+        result2 = '1' + 2 + 3; // 123
+        console.log(`${result1},${result2}`)
+    </script>
+</body>
+
+</html>

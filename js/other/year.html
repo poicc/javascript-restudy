@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+</body>
+<script>
+  // let aa = prompt('请输入年份')
+  // if(aa == ""){
+  //   alert('输入值不合法');
+  // }else if (aa % 400 == 0 || aa % 4 == 0 && aa % 100 != 0) {
+  //   alert('闰年');
+  // } else {
+  //   alert('平年');
+  // }
+
+  // let bb = aa % 400 == 0 || aa % 4 == 0 && aa % 100 != 0 ? '闰年' : '平年';
+  // alert(bb)
+
+  var str = '';
+
+  for (let i = 10; i > 0; i--) {
+    for (let j = 1; j < i; j++) {
+      str += '☆';
+    }
+    str += '\n';
+  }
+  console.log(str)
+
+  var str1 = '';
+  for (var k = 1; k <= 6; k++) {
+    for (var j = 1; j <= 6 - k; j++) {
+      str1 += "*"
+    }
+    str += "  "
+    for (var i = 0; i <= k - 1; i++) {
+      str1 += '\n';
+    }
+  }
+  console.log(str1)
+</script>
+
+</html>

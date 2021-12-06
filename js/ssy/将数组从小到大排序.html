@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>将数组从小到大排序</title>
+</head>
+
+<body>
+  <script>
+    let dataList = [
+      {
+        title: '品牌鞋子，高品质低价入手',
+        publishTime: 200,
+      },
+      {
+        title: '不是很贵，但是很暖',
+        publishTime: 100,
+      },
+      {
+        title: '无法拒绝的美食，跟我一起吃',
+        publishTime: 300,
+      },
+    ];
+
+    console.log('ssy 排序前的数组：' + JSON.stringify(dataList));
+
+    // 将dataList 数组，按照 publishTime 字段，从小到大排序。（会改变原数组）
+    dataList.sort((a, b) => parseInt(a.publishTime) - parseInt(b.publishTime));
+
+    console.log('ssy 排序后的数组：' + JSON.stringify(dataList));
+  </script>
+</body>
+
+</html>

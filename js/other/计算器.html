@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    let num = parseInt(prompt("欢迎使用建议计算器:\n1.加法运算\n2.减法运算\n3.乘法运算\n4.除法运算\n5.退出\n请输入您的选项"));
+    while (num != 5) {
+        let a = parseInt(prompt("请输入第一个数"));
+        let b = parseInt(prompt("请输入第二个数"));
+        if (num == 1) {
+            alert(add(a, b));
+        } else if (num == 2) {
+            alert(subtract(a, b));
+        } else if (num == 3) {
+            alert(ride(a, b));
+        } else if (num == 4) {
+            alert(division(a, b));
+        }
+        num = parseInt(prompt("欢迎使用建议计算器:\n1.加法运算\n2.减法运算\n3.乘法运算\n4.除法运算\n5.退出\n请输入您的选项"));
+    }
+    alert("计算机退出运行")
+
+    function add(a, b) { return a + b };
+    function subtract(a, b) { return a - b };
+    function ride(a, b) { return a * b };
+    function division(a, b) { return a / b };
+
+
+
+</script>
+
+</html>

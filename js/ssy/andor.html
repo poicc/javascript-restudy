@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //&&属于短路的与：
+        const a1 = 'ssy'; //第一个值为true，会继续执行后面的内容
+        a1 && alert('看 a1 出不出来'); // 可以弹出 alert 框
+        const a2 = undefined; //第一个值为false，不会继续执行后面的内容
+        a2 && alert('看 a2 出不出来');  // 不会弹出 alert 框
+
+        //||属于短路的或：
+        const result; 	// 请求接口时，后台返回的内容
+        let errorMsg = ''; // 前端的文案提示
+        // 接口返回异常码时	
+        if (result && result.retCode != 0) {
+            // 文案提示信息，优先用接口返回的msg字段，其次用 '活动太火爆，请稍后再试' 这个文案兜底
+            errorMsg = result.msg || '活动太火爆，请稍后再试';
+        }
+        // 接口挂掉时
+        if (!result) {
+            errorMsg = '网络异常，请稍后再试';
+        }
+    </script>
+</body>
+
+</html>

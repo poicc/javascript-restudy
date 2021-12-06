@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PageB</title>
+</head>
+<body>
+    <h1>page B</h1>
+    <iframe id="iframeA" src="http://127.0.0.1:8849"></iframe>
+    <!-- <iframe id="iframeA" src="http://localhost:8080"></iframe> -->
+    <button onclick="getInfo()">获取信息</button>
+</body>
+<script>
+    // 假设B页面是当前运行的项目，A页面是跳转过来的页面，我想在B页面拿到A页面缓存的数据
+    /* 流程
+    1：A页面触发了某个事件，向B Iframe发送消息(把需要获取到缓存的键名传过去)
+    2：B页面接受到这个键名，从缓存到拿到键值，并再发送信息把键值返回 */
+    function handle (event) {
+        console.log(event.data)
+    }
+    function getInfo () {
+        // 通过 postMessage 向子窗口发送数据
+        document.getElementById("iframeA").contentWindow 
+             .postMessage( 
+                 'pageA', 
+                "http://127.0.0.1:8849"
+             );
+        // 这里使用非匿名函数，目的时为了在下一次点击的时候注册事件能够覆盖，避免多次执行
+        window.addEventListener("message", handle, false ); 
+        // window.removeEventListener("message", handle, false ); 
+    }
+</script>
+
+<!-- 这个script里的内容拿到实际场景试了下，发现一个问题，那就是同一个域下的session是不共享的，所以没有我这里嵌入的iframe不能拿到之前的域村的seesion
+不过可以拿到local,所以如果遇到这种两个域名的场景只能用localstorage共享了，虽然很麻烦，但总好过没有啊 -->
+<!-- <script>
+    // 假设B页面是当前运行的项目，A页面是跳转过来的页面，我想在B页面拿到A页面缓存的数据
+    /* 流程
+    1：A页面触发了某个事件，向B Iframe发送消息(把需要获取到缓存的键名传过去)
+    2：B页面接受到这个键名，从缓存到拿到键值，并再发送信息把键值返回 */
+    function handle (event) {
+        console.log(event.data)
+    }
+    function getInfo () {
+        // 通过 postMessage 向子窗口发送数据
+        document.getElementById("iframeA").contentWindow 
+             .postMessage( 
+                 'PublicParams', 
+                "http://localhost:8080"
+             );
+        // 这里使用非匿名函数，目的时为了在下一次点击的时候注册事件能够覆盖，避免多次执行
+        window.addEventListener("message", handle, false ); 
+        // window.removeEventListener("message", handle, false ); 
+    }
+</script> -->
+</html>
