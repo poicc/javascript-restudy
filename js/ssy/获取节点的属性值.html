@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <img src="images/1.jpg" class="image-box" title="图片1" alt="图片1" id="a1">
+    <script type="text/javascript">
+        var myNode = document.getElementsByTagName("img")[0];
+        console.log(myNode.src);
+        console.log(myNode.className);    //注意，是className，不是class  
+        console.log(myNode.title);
+        console.log("------------");
+        console.log(myNode["src"]);
+        console.log(myNode["className"]); //注意，是className，不是class  
+        console.log(myNode["title"]);
+
+        console.log(myNode.getAttribute("src"));
+        console.log(myNode.getAttribute("class"));   //注意是class，不是className 
+        console.log(myNode.getAttribute("title"));
+    </script>
+</body>
+
+</html>

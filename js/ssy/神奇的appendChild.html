@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>神奇的appendChild</title>
+</head>
+
+<body>
+  <div class="box11">
+    <div class="box12">好好学习</div>
+  </div>
+  <div class="box21">
+    <div class="box22">天天向上</div>
+  </div>
+
+  <script>
+    var box11 = document.getElementsByClassName("box11")[0]
+    var box22 = document.getElementsByClassName("box22")[0]
+    box11.appendChild(box22)
+  </script>
+</body>
+
+</html>

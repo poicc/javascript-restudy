@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nodeType、nodeName、nodeValue</title>
+</head>
+
+<body>
+    <div id="box" value="111">
+        松山院
+    </div>
+
+    <script>
+        //●  nodeType == 1  表示的是元素节点（标签） 。记住：在这里，元素就是标签。 
+        // ●  nodeType == 2  表示是属性节点。 
+        // ●  nodeType == 3  是文本节点。 
+
+
+        var element = document.getElementById("box");  //获取元素节点（标签）
+        var attribute = element.getAttributeNode("id"); //获取box1的属性节点  
+        var txt = element.firstChild;                   //获取box1的文本节点    
+        var value = element.getAttribute("id");         //获取id的属性值   
+        console.log(element);
+        console.log("--------------");
+        console.log(attribute);
+        console.log("--------------");
+        console.log(txt);
+        console.log("--------------");
+        console.log(value);
+
+        var element = document.getElementById("box");  //获取元素节点（标签）
+        var attribute = element.getAttributeNode("id"); //获取box1的属性节点   
+        var txt = element.firstChild;                   //获取box1的文本节点   
+
+        //获取nodeType   
+        console.log(element.nodeType);       //1   
+        console.log(attribute.nodeType);     //2   
+        console.log(txt.nodeType);           //3   
+        console.log("--------------");
+
+        //获取nodeName   
+        console.log(element.nodeName);       //DIV   
+        console.log(attribute.nodeName);     //id   
+        console.log(txt.nodeName);           //#text    
+        console.log("--------------");
+
+        //获取nodeValue    
+        console.log(element.nodeValue);     //null  
+        console.log(attribute.nodeValue);   //box1   
+        console.log(txt.nodeValue);         //松山院
+    </script>
+</body>
+
+</html>

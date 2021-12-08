@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="box" title="主体" class="abcd">
+        我爱你中国
+    </div>
+    <script>
+        //如果是节点的“非原始属性”
+        //上面的这个“非原始属性”，在使用这两种方式时，是有区别的：
+        // ●  方式1 的元素节点.属性和元素节点[属性]：绑定的属性值不会出现在标签上。 
+        // ●  方式2 的get / set / removeAttribut：绑定的属性值会出现在标签上。 
+        // ●  这两种方式不能交换使用，get值和set值必须使用同一种方法。
+        var div = document.getElementById("box");
+        //采用方式一进行set  
+        div.aaaa = "1111";
+        console.log(div.aaaa);    //打印结果：1111,可以打印出来，但是不会出现在标签上 
+        //采用方式二进行set  
+        div.setAttribute("bbbb", "2222");    //bbbb作为新增的属性，会出现在标签上   
+        console.log(div.getAttribute("aaaa"));   //打印结果：null。因为方式一的set，无法采用方式二进行get。 
+        console.log(div.bbbb);                   //打印结果：undefined。因为方式二的set，无法采用方式一进行get。
+    </script>
+</body>
+
+</html>
