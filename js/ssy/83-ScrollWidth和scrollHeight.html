@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScrollWidth 和 scrollHeight</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            padding: 10px;
+            margin: 3px;
+            border: 8px solid grey;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        彼岸花开，开到荼蘼。
+        彼岸花开，开到荼蘼。
+        彼岸花开，开到荼蘼。
+        彼岸花开，开到荼蘼。
+        彼岸花开，开到荼蘼。
+        彼岸花开，开到荼蘼。
+    </div>
+    <script>
+        let div = document.getElementsByTagName("div")[0];
+        // scrollHeight的特点是：如果内容超出了盒子，scrollHeight 为内容的高（包括超出的内容）
+        // 如果不超出，scrollHeight为盒子本身的高度
+        //IE8以下（不包括IE8），为盒子本身内容的高度
+        console.log(div.scrollWidth);
+        console.log(div.scrollHeight);
+    </script>
+</body>
+
+</html>
