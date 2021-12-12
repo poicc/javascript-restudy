@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>location.href属性</title>
+</head>
+
+<body>
+    <div>hello</div>
+
+    <script>
+        var div = document.getElementsByTagName("div")[0];
+        div.onclick = function () {
+            location.href = "http://www.baidu.com";   //点击div时，跳转到指定链接
+            // window.open("http://www.baidu.com","_blank");  //方式二
+        }
+
+        //当我们访问一个不存在的网页时，会提示5秒后自动跳转到指定页面，此时就可以用到location。
+        // setTimeout(function () {
+        //     location.href = "http://www.baidu.com";
+        // }, 5000);
+
+
+        //location.assign(str);用来跳转到其他的页面，作用和直接修改location.href一样。
+        //location.reload(); // 重新加载当前页面。
+        //location.reload(true); // 在方法的参数中传递一个true，则会强制清空缓存刷新页面。location.reload();
+        //location.replace(); 使用一个新的页面替换当前页面，调用完毕也会跳转页面。但不会生成历史记录，不能使用「后退按钮」后退。 
+
+
+    </script>
+</body>
+
+</html>

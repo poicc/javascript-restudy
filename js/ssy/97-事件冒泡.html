@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件冒泡</title>
+    <style>
+        #box1 {
+            width: 400px;
+            height: 400px;
+            background-color: pink;
+        }
+
+        #box2 {
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+        }
+
+        #box3 {
+            width: 100px;
+            height: 100px;
+            background-color: cyan;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box1">
+        <div id="box2">
+            <div id="box3">点击</div>
+        </div>
+    </div>
+    <script>
+        let box3 = document.getElementById('box3')
+        let box2 = document.getElementById('box2')
+        let box1 = document.getElementById('box1')
+        //事件冒泡
+        box3.onclick = function () {
+            alert("child");
+        }
+
+        box2.onclick = function () {
+            alert("father");
+        }
+
+        box1.onclick = function () {
+            alert("grandfather");
+        }
+
+        document.onclick = function () {
+            alert("body");
+        }
+
+        //检查一个元素是否会冒泡
+        box1.onclick = function (event) {
+            alert("冒泡child");
+            event = event || window.event;
+            console.log(event.bubbles); //打印结果：true 说明 onclick 事件是可以冒泡的
+        }
+    </script>
+</body>
+
+</html>

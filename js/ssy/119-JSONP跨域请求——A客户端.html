@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSONP跨域请求——A客户端</title>
+</head>
+
+<body>
+    <div id="res"></div>
+    <script>
+        function fn(data) {
+            console.log(data);
+            document.querySelector('#res').innerHTML = JSON.stringify(data)
+        }
+
+        fn('hello world')
+    </script>
+    <script src='http://127.0.0.1:3000/info?callback=fn'></script>
+</body>
+
+</html>

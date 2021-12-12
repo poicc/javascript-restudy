@@ -1,0 +1,13 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>XML 解析</title>
+    </head>
+    <body>
+        <person id="personXML">
+            <name>ssy</name>
+            <age>20</age>
+            <skill>编程</skill>
+        </person>
+    </body>
+</html>

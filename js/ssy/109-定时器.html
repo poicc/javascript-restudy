@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let num = 1;
+
+        const timer = setInterval(function () {
+            console.log(num);  //每间隔一秒，打印一次num的值
+            num++;
+            if (num === 5) {  //打印四次之后，就清除定时器
+                clearInterval(timer);
+            }
+        }, 1000);
+
+
+
+        const timer = setTimeout(function () {
+            console.log(1); // 3秒之后，再执行这段代码。
+        }, 3000);
+
+        clearTimeout(timer);
+
+        //5秒后关闭网页两侧的广告栏
+        window.onload = function () {
+            //获取相关元素
+            var imgArr = document.getElementsByTagName("img");
+            //设置定时器：5秒后关闭两侧的广告栏
+            setTimeout(fn, 5000);
+            function fn() {
+                imgArr[0].style.display = "none";
+                imgArr[1].style.display = "none";
+            }
+        }
+    </script>
+</body>
+
+</html>
